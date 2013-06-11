@@ -67,8 +67,8 @@ $arrayList=$list['data'];
 foreach($arrayList as $friend) {
 
 
-	$name=get_object_vars($friend)['name'];
-	$id=get_object_vars($friend)['id'];
+	$friendObject=get_object_vars($friend);
+	$id=$friendObject['id'];
 	$friendsArray[]=array('id'=>$id);
 
 
@@ -159,7 +159,7 @@ array_sort_by_column($leaderBoard, 'score');
 		echo "</tbody>";
 
 			$order++;
-		}
+		
 
 	} else {
 
