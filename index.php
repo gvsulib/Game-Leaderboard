@@ -49,6 +49,9 @@ function array_sort_by_column(&$arr, $col, $dir = SORT_DESC) {
 //include the DB needed
 include "libgame_db_connect.php";
 
+
+if (isset($_GET['id']) && isset($_GET['user_access_token'])) {
+
 $userID=$_GET['id'];
 $userAccessToken=$_GET['user_access_token'];
 $FACEBOOK_BASE_API="https://graph.facebook.com/";
@@ -167,12 +170,23 @@ array_sort_by_column($leaderBoard, 'score');
 					<p><B>Sorry! We have not found you in our list :( </B></p>
 				</div>';
 
-	}	
+	}
+
+	echo '</table>';	
 ?>
 
-</table>
 
-    <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="http://code.jquery.com/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
+
+
+<?php } else {
+
+		echo 
+					'Sorry! The information is not recognized !';
+				
+}
+?>
+
